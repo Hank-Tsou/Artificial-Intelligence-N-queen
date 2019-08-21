@@ -39,7 +39,7 @@ File description:
   If the fitness value of the next state is higher than the current state, then return the next state to be our new solution, otherwise, apply a probability to decide select or not
 
 
-### 3. Analysis
+## Analysis
 
   Simulated annealing algorithm works very well for solving the N queen problem, it can solve almost 100% of the random problem. If decrease the cooling factor the program will solve the problem faster, but if the cooling factor is below than 0.7, the running time begin to increase and harder to find the solution. Because the program is too early to became not taking the bad solution to get away from the local maxima.
     
