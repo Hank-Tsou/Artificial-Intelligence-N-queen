@@ -1,4 +1,7 @@
 # Artificial Intelligence Game: N-queen
+```
+Algorithm: (1) Genetic Algorithm (2) Simulate Annealing Algorithm
+```
 
 ```
 File description:
@@ -27,7 +30,7 @@ It’s a small random tweak in the state to get a new solution with a given prob
 The Survivor Selection determines which individuals are to be kicked out and which are to be kept in the next generation. This project generate 2N new population and sort them in descending order according to their fitness value, then select the top N population to be our next generation.
 
 
-### B. SimulatedAnnealing
+### B. Simulated Annealing
 
 #### a. Next state generator
 Randomly select a queen then put in the random position to be our next possible state.
