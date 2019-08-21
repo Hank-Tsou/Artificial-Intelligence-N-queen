@@ -1,50 +1,46 @@
-# Artificial Intelligence Game: 8-puzzle
+# Artificial Intelligence Game: N-queen
 
 ```
 File description:
-  - main.java: Main function with three different menu options
-  - Board.java: Board information
-  - Solver.java: Solution with using h1(the number of misplace tiles)
-  - Solver2.java: Solution with using h2(Manhattan Distance)
+  - main.java
+  - Genetic.java : Genetic Algorithm
+  - Simulated_Annealing.java: Simulate Annealing Algorithm
 ```
 
 ## Approach
 
-### a. User Selection: 
-A user interface provide three menu options for the program.
-- (1) Input a specific 8-puzzle configuration
-- (2) Generate random 8-puzzle problem
-- (3) Read 8-puzzle input from the .txt file
+### A. Genetic Algorithm
 
-### b. Data Structure: 
-In order to improve the performance and speed of the program, This project use ‘character array’ instead of ‘integer array’ and used “1- dimensional” array instead of “2-dimensional” array.
+#### a. Fitness function:
+The fitness function defines how good the state is, this program calculate the non- attacking value N * ( N – 1 ) / 2 then minus 1 for each attacking pairs.
 
-### c. HeuristicFunction:
-- (1) h1: the number of misplaced tiles
-  - Using “for loop” to check if the number is in the right position or not.
-- (2) h2: the sum of the distances of the tiles from their goal position
-  - Use equation: |(i / 3) - char[i] / 3| + |(i % 3) - char[i] % 3| to check how many steps should move to the goal position.
+#### b. Parent Selection:
+Every individual can become a parent with a probability which is proportional to its fitness. Therefore, the individuals which have a higher fitness value will have a higher chance of mating and propagating their features to the next generation. This process is like “Roulette Wheel Selection”.
 
-### d. Open Set and Close Set:
-- (1) Open set: the board which has been created but doesn’t consider yet.
-  - Method: add the board into priority queue and use comparator to sort the queue by consider it’s heuristic function and depths.
-- (2) Close Set: the board which already been considered as solution.
-  - Method: put the board into hash map, then the program will check if the new board is already visited or not. 
-  
-### e. Search Cost: 
-Counter add 1 when new child nodes been created.
+#### c. Crossover:
+This program used one point crossover, the process is like the figure below, randomly select a cut point then change part of the state solution.
 
-### f. Board and Node Information:
-- (1) Board information: only contain heuristic value.
-- (2) Node information: make every board as a node, the node information contain moves(which is depths), previous node(which is it’s parent).
-  - The final depths for the goal steps is the final node’s moves value, and the program can follow the previous node information to print out the each step from the initial state to the final state.
+#### d. Mutation:
+It’s a small random tweak in the state to get a new solution with a given probability. This program used insertion mutation which randomly select a queen then randomly change the position.
 
-## Analysis
-  By comparing the output result, we can find that the average search cost and the average run time from depth 2 to depth 6 for A* search algorithm with using different heuristic function h1 and h2 are almost the same.
-  
-  However, starting from depth 8, the average search cost and average run time using h1 (the number of misplaced tiles) cost more than the one which using h2 (Manhattan Distance). And after depth 20 the average run time which using h1 increase dramatically which shows in the figure below.
+#### e. Survivor Selection :
+The Survivor Selection determines which individuals are to be kicked out and which are to be kept in the next generation. This project generate 2N new population and sort them in descending order according to their fitness value, then select the top N population to be our next generation.
 
-  Therefore, after testing 5000 random puzzles we can conclude that using A* search algorithm with h2 generates less node and cost less time to solve 8-puzzle problem. Thus, A* search algorithm with Manhattan distance heuristic is more efficient.
+
+### B. SimulatedAnnealing
+
+#### a. Next state generator
+Randomly select a queen then put in the random position to be our next possible state.
+
+#### b. Selection function
+If the fitness value of the next state is higher than the current state, then return the next state to be our new solution, otherwise, apply a probability to decide select or not
+
+
+### 3. Analysis
+
+  Simulated annealing algorithm works very well for solving the N queen problem, it can solve almost 100% of the random problem. If decrease the cooling factor the program will solve the problem faster, but if the cooling factor is below than 0.7, the running time begin to increase and harder to find the solution. Because the program is too early to became not taking the bad solution to get away from the local maxima.
+    
+  Genetic algorithm also works well on solving the N queen problem, depend on the figure above we can see if increase the population size will extremely increase the program running time. Then if let the program run less state during the process, the percentage for solving the problem decrease to 90%. Because genetic algorithm is easy to stuck in the local maxima, it needs mutation function to help the program find the solution, so need more running state.
 
 ![](README_IMG/8puzzel.png)
 
