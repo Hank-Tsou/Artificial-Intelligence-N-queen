@@ -12,7 +12,7 @@ File description:
 
 ## Approach
 
-### A. Genetic Algorithm
+### 1. Genetic Algorithm
 
 - #### a. Fitness function:
   The fitness function defines how good the state is, this program calculate the non- attacking value N * ( N – 1 ) / 2 then minus 1 for each attacking pairs.
@@ -30,7 +30,7 @@ File description:
   The Survivor Selection determines which individuals are to be kicked out and which are to be kept in the next generation. This project generate 2N new population and sort them in descending order according to their fitness value, then select the top N population to be our next generation.
 
 
-### B. Simulated Annealing
+### 2. Simulated Annealing
 
 - #### a. Next state generator
   Randomly select a queen then put in the random position to be our next possible state.
