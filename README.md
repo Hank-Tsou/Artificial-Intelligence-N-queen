@@ -45,6 +45,8 @@ File description:
     
   Genetic algorithm also works well on solving the N queen problem, depend on the figure above we can see if increase the population size will extremely increase the program running time. Then if let the program run less state during the process, the percentage for solving the problem decrease to 90%. Because genetic algorithm is easy to stuck in the local maxima, it needs mutation function to help the program find the solution, so need more running state.
 
+## Test Result
+
 ![](README_IMG/Nqueen.png)
 
 ## License
