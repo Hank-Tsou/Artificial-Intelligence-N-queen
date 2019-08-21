@@ -5,7 +5,7 @@ Algorithm: (1) Genetic Algorithm (2) Simulate Annealing Algorithm
 
 ```
 File description:
-  - main.java
+  - main.java: main function for the project
   - Genetic.java : Genetic Algorithm
   - Simulated_Annealing.java: Simulate Annealing Algorithm
 ```
