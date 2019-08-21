@@ -14,29 +14,29 @@ File description:
 
 ### A. Genetic Algorithm
 
-#### a. Fitness function:
-The fitness function defines how good the state is, this program calculate the non- attacking value N * ( N – 1 ) / 2 then minus 1 for each attacking pairs.
+- #### a. Fitness function:
+  The fitness function defines how good the state is, this program calculate the non- attacking value N * ( N – 1 ) / 2 then minus 1 for each attacking pairs.
 
-#### b. Parent Selection:
-Every individual can become a parent with a probability which is proportional to its fitness. Therefore, the individuals which have a higher fitness value will have a higher chance of mating and propagating their features to the next generation. This process is like “Roulette Wheel Selection”.
+- #### b. Parent Selection:
+  Every individual can become a parent with a probability which is proportional to its fitness. Therefore, the individuals which have a higher fitness value will have a higher chance of mating and propagating their features to the next generation. This process is like “Roulette Wheel Selection”.
 
-#### c. Crossover:
-This program used one point crossover, the process is like the figure below, randomly select a cut point then change part of the state solution.
+- #### c. Crossover:
+  This program used one point crossover, the process is like the figure below, randomly select a cut point then change part of the state solution.
 
-#### d. Mutation:
-It’s a small random tweak in the state to get a new solution with a given probability. This program used insertion mutation which randomly select a queen then randomly change the position.
+- #### d. Mutation:
+  It’s a small random tweak in the state to get a new solution with a given probability. This program used insertion mutation which randomly select a queen then randomly change the position.
 
-#### e. Survivor Selection :
-The Survivor Selection determines which individuals are to be kicked out and which are to be kept in the next generation. This project generate 2N new population and sort them in descending order according to their fitness value, then select the top N population to be our next generation.
+- #### e. Survivor Selection :
+  The Survivor Selection determines which individuals are to be kicked out and which are to be kept in the next generation. This project generate 2N new population and sort them in descending order according to their fitness value, then select the top N population to be our next generation.
 
 
 ### B. Simulated Annealing
 
-#### a. Next state generator
-Randomly select a queen then put in the random position to be our next possible state.
+- #### a. Next state generator
+  Randomly select a queen then put in the random position to be our next possible state.
 
-#### b. Selection function
-If the fitness value of the next state is higher than the current state, then return the next state to be our new solution, otherwise, apply a probability to decide select or not
+- #### b. Selection function
+  If the fitness value of the next state is higher than the current state, then return the next state to be our new solution, otherwise, apply a probability to decide select or not
 
 
 ### 3. Analysis
